@@ -3,7 +3,7 @@
     <string name="hint_email">E-mail</string>
     <string name="esqueci">Esqueci a senha</string>
     <string name="senha">Senha</string>
-    <string name="produto_tv">Televisão</string>
-    <string name="descr_tv">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
-    <string name="preco_tv">R$ 5.000,00</string>
+    <string name="produto_nome">Televisão</string>
+    <string name="produto_descr">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+    <string name="produto_preco">R$ 5.000,00</string>
 </resources>

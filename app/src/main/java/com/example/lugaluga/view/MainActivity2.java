@@ -1,5 +1,6 @@
 package com.example.lugaluga.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lugaluga.R;
+import com.example.lugaluga.RecyclerItemClickListener;
 import com.example.lugaluga.model.Produto;
 import com.example.lugaluga.view.adapter.AdapterProduto;
 
@@ -48,24 +50,21 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterProduto);
 
-        recyclerView.addOnItemTouchListener(
-                new RecyclerView.ItemClickListener(
-                        getApplicationContext(),
-                        recyclerView,
-                        new RecyclerItemClickListener.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-
+                Intent intent = new Intent(MainActivity2.this, ProdutoActivity.class);
+                intent.putExtra("produto", produtoList.get(position));
+                startActivity(intent);
             }
 
             @Override
             public void onLongItemClick(View view, int position) {
+                Toast.makeText(getApplicationContext(), produtoList.get(position).getDescricao(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             }
         }));

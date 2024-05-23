@@ -12,5 +12,35 @@
             android:id="@+id/nav_produtos"
             android:icon="@drawable/ic_menu_produtos"
             android:title="Produtos" />
+        <item
+            android:id="@+id/nav_solicitacao"
+            android:icon="@drawable/ic_menu_solicitacao"
+            android:title="Solicitação"
+            />
+
+        <item
+            android:id="@+id/nav_acomp"
+            android:icon="@drawable/baseline_access_time_24"
+            android:title="Acompanhamento"
+            />
+        <item
+            android:id="@+id/nav_atend"
+            android:icon="@drawable/baseline_phone_24"
+            android:title="Atendimento"
+            />
     </group>
+    <item android:title="Mais Informações">
+        <menu>
+            <item
+                android:id="@+id/nav_sobre"
+                android:icon="@drawable/baseline_info_24"
+                android:title="Sobre Nós"
+                />
+            <item
+                android:id="@+id/nav_fale"
+                android:icon="@drawable/baseline_contact_phone_24"
+                android:title="Fale Conosco"
+                />
+        </menu>
+    </item>
 </menu>

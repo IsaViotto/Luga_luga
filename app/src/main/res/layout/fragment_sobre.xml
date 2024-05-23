@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SobreFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/quem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quem somos nós"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/texto1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quem"
+            />
+
+        <ImageView
+            android:id="@+id/imagem1"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/imagemempresa"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toEndOf="@id/texto1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/qual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qual a nossa missão"
+            android:textSize="25dp"
+            app:layout_constraintTop_toBottomOf="@id/texto1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/texto2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qual"
+            />
+
+        <ImageView
+            android:id="@+id/imagem2"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/imagemgrafico"
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toStartOf="@id/texto2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/qual"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

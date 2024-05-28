@@ -2,17 +2,20 @@ package com.example.lugaluga.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lugaluga.R;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+public class LoginActivity extends AppCompatActivity {
 
     private Button buttonLogin;
     private TextInputLayout inputEmail, inputSenha;
@@ -29,8 +32,35 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin= findViewById(R.id.btn1);
         fazerCadastro = findViewById(R.id.btn2);
 
+        inputEmail.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Pattern pattern;
+                Matcher matcher;
+                String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+                pattern = Pattern.compile(EMAIL_PATTERN);
+                CharSequence cs = (CharSequence) s;
+                matcher = pattern.matcher(cs);
+                if (!(matcher.matches() == true)) {
+                    inputEmail.setError("Invalid email");
+                } else {
+                    inputEmail.setError("");
+                }
+            }
+        });
+
         Intent intent = new Intent(this, MainActivity3.class);
-        Intent intent2 = new Intent(this, ActivityCadastrar.class);
+
 
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -40,13 +70,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent2 = new Intent(this, ActivityCadastrar.class);
+
         fazerCadastro.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(intent2);
             }
         });
-
     }
 
     public boolean validaEmailSenha(){

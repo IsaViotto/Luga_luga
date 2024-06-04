@@ -3,23 +3,22 @@ package com.example.lugaluga.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-
 public class Cliente implements Parcelable{
     private String nome;
     private String cpf;
-    private Date data;
+    private String data;
     private String cep;
     private String logradouro;
     private Integer numero;
     private String complemento;
+    private String telefone;
     private String bairro;
     private String cidade;
     private String uf;
     private String email;
     private String senha;
 
-    public Cliente(String nome, String cpf, Date data, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, String email, String senha) {
+    public Cliente(String nome, String cpf, String data, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, String email, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.data = data;
@@ -27,6 +26,7 @@ public class Cliente implements Parcelable{
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;
+        this.telefone = telefone;
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
@@ -47,9 +47,11 @@ public class Cliente implements Parcelable{
         complemento = in.readString();
         bairro = in.readString();
         cidade = in.readString();
+        telefone = in.readString();
         uf = in.readString();
         email = in.readString();
         senha = in.readString();
+        data = in.readString();
     }
 
     @Override
@@ -67,9 +69,11 @@ public class Cliente implements Parcelable{
         dest.writeString(complemento);
         dest.writeString(bairro);
         dest.writeString(cidade);
+        dest.writeString(telefone);
         dest.writeString(uf);
         dest.writeString(email);
         dest.writeString(senha);
+        dest.writeString(data);
     }
 
     @Override
@@ -105,11 +109,11 @@ public class Cliente implements Parcelable{
         this.cpf = cpf;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -143,6 +147,14 @@ public class Cliente implements Parcelable{
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getBairro() {

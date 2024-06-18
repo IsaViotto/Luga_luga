@@ -18,7 +18,7 @@ public class Cliente implements Parcelable{
     private String email;
     private String senha;
 
-    public Cliente(String nome, String cpf, String data, String cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String uf, String email, String senha) {
+    public Cliente() {
         this.nome = nome;
         this.cpf = cpf;
         this.data = data;

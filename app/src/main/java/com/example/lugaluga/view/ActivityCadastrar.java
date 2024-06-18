@@ -9,6 +9,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +25,13 @@ import java.util.regex.Pattern;
 
 public class ActivityCadastrar extends AppCompatActivity{
 
+    private Button btnCep;
+
     private Spinner spinnerUf;
 
-    private TextInputLayout inputCpf, inputNome, inputData, inputCep, inputCidade, inputLogradouro,
-            inputNumero, inputComplemento, inputBairro, inputTelefone, inputEmail, inputSenha;
+    private TextInputLayout inputCpf, input_nome, input_data, input_cep,
+            input_cidade, input_logradouro, input_numero, input_complemento,
+            input_bairro, inputEmail, input_senha;
 
     private Button btnCadastrar;
 
@@ -42,19 +46,19 @@ public class ActivityCadastrar extends AppCompatActivity{
         myToolBar.setTitle("Luga Luga Cadastro");
         setSupportActionBar(myToolBar);
 
-        inputCpf = findViewById(R.id.cpf);
-        inputNome = findViewById(R.id.nome);
-        inputData = findViewById(R.id.data);
-        inputCep = findViewById(R.id.cep);
-        inputCidade = findViewById(R.id.cida);
-        inputLogradouro = findViewById(R.id.log);
-        inputNumero = findViewById(R.id.num);
-        inputComplemento = findViewById(R.id.comp);
-        inputTelefone = findViewById(R.id.tele);
-        inputEmail = findViewById(R.id.email);
-        inputSenha = findViewById(R.id.senha);
-        inputBairro = findViewById(R.id.bairro);
-
+        inputCpf = findViewById(R.id.input_cpf);
+        input_nome = findViewById(R.id.input_nome);
+        input_data = findViewById(R.id.input_data);
+        input_cep = findViewById(R.id.input_cep);
+        input_cidade = findViewById(R.id.input_cidade);
+        input_logradouro = findViewById(R.id.input_logradouro);
+        input_numero = findViewById(R.id.input_numero);
+        input_complemento = findViewById(R.id.input_complemento);
+        input_bairro = findViewById(R.id.input_bairro);
+        inputEmail = findViewById(R.id.input_email);
+        input_senha = findViewById(R.id.input_senha);
+        btnCadastrar = findViewById(R.id.btn_cadastrar);
+        btnCep = findViewById(R.id.button_cep);
 
         inputCpf.getEditText().addTextChangedListener(new TextWatcher() {
             private static final String maskCPF = "###.###.###-##";
@@ -108,8 +112,6 @@ public class ActivityCadastrar extends AppCompatActivity{
             }
         });
 
-        inputEmail = findViewById(R.id.email);
-
         inputEmail.getEditText().addTextChangedListener(new TextWatcher() {
             private static final String maskCPF = "###.###.###-##";
 
@@ -143,9 +145,8 @@ public class ActivityCadastrar extends AppCompatActivity{
             }
         });
 
-        inputCep = findViewById(R.id.cep);
 
-        inputCep.getEditText().addTextChangedListener(new TextWatcher() {
+        input_cep.getEditText().addTextChangedListener(new TextWatcher() {
             private static final String maskCEP = "####-###";
 
             boolean isUpdating;
@@ -186,8 +187,8 @@ public class ActivityCadastrar extends AppCompatActivity{
                     i++;
                 }
                 isUpdating = true;
-                inputCep.getEditText().setText(mascara);
-                inputCep.getEditText().setSelection(mascara.length());
+                input_cep.getEditText().setText(mascara);
+                input_cep.getEditText().setSelection(mascara.length());
 
             }
 
@@ -197,7 +198,7 @@ public class ActivityCadastrar extends AppCompatActivity{
             }
         });
 
-        spinnerUf = (Spinner) findViewById(R.id.spinnerUf);
+        spinnerUf = (Spinner) findViewById(R.id.spinner_uf);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
@@ -213,25 +214,41 @@ public class ActivityCadastrar extends AppCompatActivity{
             public void onClick(View v) {
                 UsuarioController crud = new UsuarioController(getApplicationContext());
                 Cliente usuario = new Cliente();
-                usuario.setNome(inputNome.getEditText().getText().toString());
+                usuario.setNome(input_nome.getEditText().getText().toString());
                 usuario.setCpf(inputCpf.getEditText().getText().toString());
-                usuario.setData(inputData.getEditText().getText().toString());
-                usuario.setCep(inputCep.getEditText().getText().toString());
-                usuario.setCidade(inputCidade.getEditText().getText().toString());
-                usuario.setLogradouro(inputLogradouro.getEditText().getText().toString());
-                usuario.setNumero(Integer.valueOf(inputNumero.getEditText().getText().toString()));
-                usuario.setComplemento(inputComplemento.getEditText().getText().toString());
-                usuario.setTelefone(inputTelefone.getEditText().getText().toString());
-                usuario.setBairro(inputBairro.getEditText().getText().toString());
+                usuario.setData(input_data.getEditText().getText().toString());
+                usuario.setCep(input_cep.getEditText().getText().toString());
+                usuario.setCidade(input_cidade.getEditText().getText().toString());
+                usuario.setLogradouro(input_logradouro.getEditText().getText().toString());
+                usuario.setNumero(Integer.valueOf(input_numero.getEditText().getText().toString()));
+                usuario.setComplemento(input_complemento.getEditText().getText().toString());
+                usuario.setBairro(input_bairro.getEditText().getText().toString());
                 usuario.setEmail(inputEmail.getEditText().getText().toString());
-                usuario.setSenha(inputSenha.getEditText().getText().toString());
+                usuario.setSenha(input_senha.getEditText().getText().toString());
 
-                String resultado;
+                boolean resultado;
 
                 resultado = crud.insereDados(usuario.getNome(), usuario.getCpf(), usuario.getData(),usuario.getCep(),
                         usuario.getCidade(), usuario.getLogradouro(),0, usuario.getComplemento(),
                         usuario.getTelefone(), usuario.getBairro(), usuario.getUf(),
                         usuario.getEmail(), usuario.getSenha());
+
+                if(resultado){
+                    Toast.makeText(getApplicationContext(), "Inserido com sucesso", Toast.LENGTH_LONG).show();
+
+                }
+
+                else{
+                    Toast.makeText(getApplicationContext(), "Erro na inserção", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+        btnCep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

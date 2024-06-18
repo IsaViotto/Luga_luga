@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lugaluga.R;
+import com.example.lugaluga.controller.UsuarioController;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Matcher;
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                validaEmailSenha();
+                if(validaEmailSenha() && verificaUsuario());
                 startActivity(intent);
             }
         });
@@ -91,4 +92,18 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
         return true;}
+
+    private boolean verificaUsuario(){
+        String email = inputEmail.getEditText().getText().toString();
+
+        String senha = inputSenha.getEditText().getText().toString();
+
+        UsuarioController usuarioController = new UsuarioController(getApplicationContext());
+
+        if(usuarioController.verificaUsuario(email, senha)){
+            return true;
+        }
+
+        return false;
+    }
 }

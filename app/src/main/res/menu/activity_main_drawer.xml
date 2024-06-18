@@ -28,6 +28,11 @@
             android:icon="@drawable/baseline_phone_24"
             android:title="Atendimento"
             />
+        <item
+            android:id="@+id/nav_buscaUsu"
+            android:icon="@drawable/baseline_search_24"
+            android:title="Busca Usuário"
+            />
     </group>
     <item android:title="Mais Informações">
         <menu>

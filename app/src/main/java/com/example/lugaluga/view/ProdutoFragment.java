@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.lugaluga.R;
 import com.example.lugaluga.RecyclerItemClickListener;
+import com.example.lugaluga.controller.ProdutoController;
 import com.example.lugaluga.model.Produto;
 import com.example.lugaluga.view.adapter.AdapterProduto;
 
@@ -99,94 +100,7 @@ public class ProdutoFragment extends Fragment {
         return view;
     }
     public void CriarListaProdutos() {
-        Produto produto = new Produto(
-                "Iphone 14",
-                3000.00,
-                "Iphone 14 256GB dourado",
-                12,
-                true);
-
-        produtoList.add(produto);
-
-        Produto produto2 = new Produto(
-                "Iphone 13 pro max",
-                2500.00,
-                "Iphone 13 256GB branco",
-                10,
-                true);
-
-        produtoList.add(produto2);
-
-        Produto produto3 = new Produto(
-                "AppleWatch",
-                1500.00,
-                "AppleWatch SE branco",
-                5,
-                true);
-
-        produtoList.add(produto3);
-
-        Produto produto4 = new Produto(
-                "iPad 9",
-                2000.00,
-                "iPad apple 9th geração",
-                3,
-                true);
-
-        produtoList.add(produto4);
-
-        Produto produto5 = new Produto(
-                "AirPods",
-                1800.00,
-                "Apple airpods 3th geração",
-                10,
-                true);
-
-        produtoList.add(produto5);
-
-        Produto produto6 = new Produto(
-                "MacBook",
-                5700.00,
-                "Apple macbook air M1",
-                5,
-                true);
-
-        produtoList.add(produto6);
-
-        Produto produto7 = new Produto(
-                "iPhone 12",
-                2300.00,
-                "Apple iPhone pro max rosa",
-                12,
-                true);
-
-        produtoList.add(produto7);
-
-        Produto produto8 = new Produto(
-                "AirPods",
-                1500.00,
-                "Apple airpods 2th geração",
-                8,
-                true);
-
-        produtoList.add(produto8);
-
-        Produto produto9 = new Produto(
-                "iPad 10",
-                4000.00,
-                "Apple iPad 10th geração",
-                6,
-                true);
-
-        produtoList.add(produto9);
-
-        Produto produto10 = new Produto(
-                "AppleWatch",
-                1800.00,
-                "AppleWatch rosa",
-                7,
-                true);
-
-        produtoList.add(produto10);
+        ProdutoController produtoController = new ProdutoController(getContext());
+        produtoList.addAll(produtoController.carregaProdutos());
     }
 }

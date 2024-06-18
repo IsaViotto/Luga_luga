@@ -12,16 +12,20 @@
     <string name="alugar">Alugar</string>
     <string name="descr_aleatorio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </string>
 
-    <string name="cadastro_nome">Nome</string>
-    <string name="cadastro_cpf">CPF</string>
-    <string name="cadastro_data">Data de Nascimento</string>
-    <string name="cadastro_cep">CEP</string>
-    <string name="cadastro_log">Logradouro</string>
-    <string name="cadastro_num">Número</string>
-    <string name="cadastro_comp">Complemento</string>
-    <string name="cadastro_bairro">Bairro</string>
-    <string name="cadastro_cida">Cidade</string>
-    <string name="cadastro_uf">UF</string>
+    <string name="input_nome_user">Nome</string>
+    <string name="input_cpf_user">CPF</string>
+    <string name="input_nascimento_user">Data Nascimento</string>
+    <string name="input_logradouro_user">Logradouro</string>
+    <string name="input_numero_user">Nº</string>
+    <string name="input_complemento_user">Complemento</string>
+    <string name="input_bairro_user">Bairro</string>
+    <string name="input_cep_user">CEP</string>
+    <string name="input_cidade_user">Cidade</string>
+    <string name="input_uf_user">UF</string>
+    <string name="input_email_user">E-mail</string>
+    <string name="input_senha_user">Senha</string>
+
+    <string name="btn_cadastrar">Cadastrar</string>
 
     <string-array name="uf_cadastro">
 

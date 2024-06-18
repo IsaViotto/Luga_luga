@@ -37,6 +37,14 @@
         android:label="Atendimento"
         tools:layout="@layout/fragment_acompanhamento"
         />
+
+    <fragment
+        android:id="@+id/nav_buscaUsu"
+        android:name="com.example.lugaluga.view.BuscaFragment"
+        android:label="Busca Usuário"
+        tools:layout="@layout/fragment_buscausu"
+        />
+
     <fragment
         android:id="@+id/nav_sobre"
         android:name="com.example.lugaluga.view.SobreFragment"
